@@ -1,0 +1,68 @@
+.profile-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.profile-modal .btn {
+  background-color: orange;
+  width: 80%;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  display: block;
+  margin: 4px auto;
+}
+
+.profile-modal .btn:hover {
+  background-color: rgba(255, 166, 0, 0.873);
+}
+
+.profile-modal .btn:active {
+  background-color: orange;
+}
+
+.profile-modal .profile-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.profile-modal .profile-modal-box {
+  position: relative;
+  width: 380px;
+  margin: 120px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  z-index: 2;
+  font-family: sans-serif;
+}
+
+.profile-modal .close-profile-modal {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: none;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.profile-modal .profile-form-cont label {
+  display: block;
+  margin-bottom: 18px;
+  font-size: 14px;
+}
+
+.profile-modal input[type="text"],
+.profile-modal input[type="password"],
+.profile-modal input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}

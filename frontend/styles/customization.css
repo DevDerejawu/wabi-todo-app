@@ -1,0 +1,81 @@
+.customization-btn-cont {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.customization-btn-cont div.customize-btn-cont {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 250px));
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.customization-btn-cont h2 {
+  text-align: center;
+}
+
+.customization-btn-cont button {
+  padding: 10px;
+  background-color: orange;
+  font-size: 1.1rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 10px;
+  border: none;
+}
+
+.customization-btn-cont button:hover {
+  background-color: #ffa600b3;
+}
+
+.customization-btn-cont button:active {
+  background-color: orange;
+}
+
+.customize-delete-and-edit-form-cont {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.customize-delete-and-edit-form-cont .select {
+  border: none;
+  padding: 20px;
+  border: solid blue 2px;
+  background-color: aqua;
+  max-width: 500px;
+  border-radius: 50px;
+  transition: 0.4s;
+  font-size: 1.3rem;
+}
+
+.customize-delete-and-edit-form-cont .select:hover {
+  background-color: black;
+  color: white;
+}
+
+.customize-delete-and-edit-form-cont .select:active {
+  background-color: aqua;
+}
+
+.customize-delete-and-edit-form-cont .btn {
+  border: none;
+  padding: 10px;
+  background-color: orange;
+  width: 200px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.3rem;
+}
+
+.customize-delete-and-edit-form-cont .btn:hover {
+  background-color: rgba(255, 166, 0, 0.724);
+}
+
+.customize-delete-and-edit-form-cont .btn:active {
+  background-color: orange;
+}

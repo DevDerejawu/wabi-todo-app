@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/dashboard.css" />
+    <link rel="stylesheet" href="../styles/common.css" />
+    <link rel="stylesheet" href="../styles/task-form.css">
+    <link rel="stylesheet" href="../styles/customization.css">
+    <link rel="stylesheet" href="../styles/profieModal.css">
+    <title>User Dashboard</title>
+  </head>
+
+  <body>
+     
+    <!-- Sidebar -->
+    <aside class="sidebar sidebar-default">
+      <h2 class="sidebar-logo">TaskMgr</h2>
+      <ul class="sidebar-links">
+        
+      </ul>
+    </aside>
+
+     <!-- Sidebar -->
+    <aside class="sidebar mobile-sidebar show">
+     <div class="fixed"> <h2 class="sidebar-logo">TaskMgr</h2>
+      <button class="close-navlinks">Close</button></div>
+      <ul class="sidebar-links">
+        
+      </ul>
+    </aside>
+
+    <!-- Main Dashboard -->
+    <main class="main-content">
+      <!-- Top Navbar -->
+      <header class="top-nav">
+        <p class="dashboard-menu-btn">☰</p>
+        <h1 class="headingText">User Dashboard</h1>
+        <button class="admin-btn">Go to Admin dashboard</button>
+
+        <div class="profile">
+          <img src="../img/avatar.png" id="profile-picture" alt="User" />
+        </div>
+      </header>
+      <h3 class="popup-message"></h3>
+      <h2 class="greeting"><strong id="user-name-for-greeting"></strong></h2>
+
+      <div class="containers-of-all-nav-bars">
+        <!-- Cards Section will run here by default-->
+
+        <!--customization will run here-->
+        
+      </div>
+
+       <!--Tasks will be rendered in a table here-->
+      
+       <section class="table-section targeted-table-cont show">
+        <h2 class="fetched-task-message"></h2>
+          <table class="targeted-table">
+            <thead>
+            </thead>
+            <tbody> 
+            </tbody>
+          </table>
+        </section>
+
+
+
+<div class="profile-modal">
+  <div class="profile-modal-backdrop"></div>
+
+  <div class="profile-modal-box">
+    <button class="close-profile-modal">&times;</button>
+
+    <h2>You can edit one or more of your profiles.</h2>
+
+    <div class="profile-form-cont">
+      <label>
+        Edit your Full name <br>
+        <input type="text" id="profile-name" placeholder="Edit your name">
+      </label>
+
+      <label>
+        Edit your password <br>
+        <input type="password" id="profile-password" placeholder="Edit your password">
+      </label>
+
+      <label>
+        Edit your profile picture <br>
+        <input type="file" id="profile-image-picture">
+      </label> 
+      <button class="btn">Submit your new data</button>
+    </div>
+  </div>
+</div>
+
+
+      <!-- Table Section -->
+      <section class="table-section default-table-cont">
+        <h2 class="latest-task-message"></h2>
+        <table class="default-table">
+          <thead>
+          </thead>
+          <tbody> 
+          </tbody>
+        </table>
+      </section>
+
+    </main>
+    <script src="../js-files/dashboard.js" type="module"></script>
+  </body>
+</html>
