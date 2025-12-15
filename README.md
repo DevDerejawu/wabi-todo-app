@@ -2,7 +2,7 @@ Todo App Project Readme
 Todo App Project
 
 Live Demo: https://my-project-url.com
-Repository: https://github.com/DevDerejawu/todo-app-project
+Repository: https://github.com/DevDerejawu/todo-app-project.git
 
 Overview
 

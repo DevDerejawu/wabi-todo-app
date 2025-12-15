@@ -1,3 +1,5 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import db from "../../config/db.js";
 
 async function updateUserProfile({
@@ -46,6 +48,7 @@ async function updateUserProfile({
       error: "No rows updated",
     };
   } catch (err) {
+   
     return {
       success: false,
       status: 500,

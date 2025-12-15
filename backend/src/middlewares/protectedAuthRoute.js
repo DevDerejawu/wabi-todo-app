@@ -1,4 +1,6 @@
 import jwt from "jsonwebtoken";
+import dotenv from 'dotenv';
+dotenv.config();
 import { generateAccessToken } from "../../utiles/tokens.js";
 
 function authenticate(req, res, next) {
@@ -18,7 +20,7 @@ function authenticate(req, res, next) {
 
     // if accesstoken is available attach user info and continu the handler
     if (accessToken) {
-        const decoded = jwt.verify(accessToken, process.env?.JWT_ACCESS_SECRET ||"67jfhfggc");
+        const decoded = jwt.verify(accessToken, process.env?.JWT_ACCESS_SECRET);
         req.user = decoded;
         return next();
     }
@@ -26,15 +28,15 @@ function authenticate(req, res, next) {
     // accessToken is failed try refreshtoken to generate a new access and attach user info.
     if (refreshToken) {
       try {
-        const decodedRefresh = jwt.verify(refreshToken, process.env?.JWT_REFRESH_SECRET || "hfg67utmn");
+        const decodedRefresh = jwt.verify(refreshToken, process.env?.JWT_REFRESH_SECRET);
         const { userId, email, name, role } = decodedRefresh;
 
         // Generate new access token
         const newAccessToken = generateAccessToken({ userId, email, name, role });
         res.cookie("accessToken", newAccessToken, {
           httpOnly: true,
-          secure: false,
-          sameSite: "lax",
+          secure: true,
+          sameSite: "none",
           maxAge: 15 * 60 * 1000
         });
 

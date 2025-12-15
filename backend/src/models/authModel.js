@@ -1,14 +1,20 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import bcrypt from "bcrypt";
 import db from '../../config/db.js';
 import { findUserByEmail } from "../middlewares/findByEmailMiddleware.js";
 //import { sendVerificationEmail } from "../../utiles/sendVerificationEmail.js";
+import dayjs from 'dayjs';
 
+
+const now = dayjs().format('YYYY-MM-DD HH:mm:ss');
 
 
 async function registerUsers(body) {
   try {
     const { name, email, password } = body;
 
+    
     const isAlreadyExist = await findUserByEmail(email);
     if (isAlreadyExist) {
       return {
@@ -26,8 +32,8 @@ async function registerUsers(body) {
 
     const registerSql = `
       INSERT INTO users
-      (name, email, password, verification_token, verification_expires)
-      VALUES (?, ?, ?, ?, ?)
+      (name, email, password, verification_token, verification_expires, created_at)
+      VALUES (?, ?, ?, ?, ?, ?)
     `;
     const [result] = await db.query(registerSql, [
       name,
@@ -35,6 +41,7 @@ async function registerUsers(body) {
       hashedPassword,
       verificationCode,
       verificationExpires,
+      now
     ]);
 
     if (!result.insertId) {
@@ -56,11 +63,12 @@ async function registerUsers(body) {
       success: true,
       status: 201,
       error: null,
-      message: `Successfully registered. We sent a verification email to ${email}.`,
+      message: `Successfully registered. Thank you, ${name}.`,
       data: { userId: result.insertId }
     };
 
   } catch (err) {
+    
     return {
       success: false,
       status: 500,
@@ -87,6 +95,7 @@ async function makeUsersLogin(body) {
     }
 
     const isPasswordMatch = await bcrypt.compare(password, user.password);
+   
     if (!isPasswordMatch) {
       return {
         success: false,
@@ -109,6 +118,7 @@ async function makeUsersLogin(body) {
     };
 
   } catch (err) {
+   
     return {
       success: false,
       status: 500,

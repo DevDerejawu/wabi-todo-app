@@ -1,5 +1,10 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import db from "../../config/db.js";
+import dayjs from 'dayjs';
 
+
+const now = dayjs().format('YYYY-MM-DD HH:mm:ss');
 async function updateTask(userId, taskId, body) {
   try {
     const {
@@ -14,7 +19,7 @@ async function updateTask(userId, taskId, body) {
 
     const sql = `
       UPDATE tasks
-      SET title = ?, content = ?, priority = ?, time_quantity = ?, time_unit = ?, deadline = ?, status = ?
+      SET title = ?, content = ?, priority = ?, time_quantity = ?, time_unit = ?, deadline = ?, status = ?, updated_at = ?
       WHERE id = ? AND user_id = ?
     `;
 
@@ -26,6 +31,7 @@ async function updateTask(userId, taskId, body) {
       timeUnit,
       deadline,
       status,
+      now,
       taskId,
       userId,
     ]);

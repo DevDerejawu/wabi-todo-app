@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-dotenv.config();//if it works in any case, but locall is not working
+dotenv.config();
 import express from "express";
 import cors from "cors";
 import path from "path";
@@ -20,6 +20,7 @@ app.use(
   express.static(path.join(__dirname, "profilePictures", "images"))
 );
 app.use(express.json());
+
 app.use(
   cors({
     origin: "http://127.0.0.1:5500",
@@ -33,7 +34,7 @@ app.get("/", (req, res) => {
     .sendFile(path.join(__dirname, "..", "frontend", "index.html"));
 });
 
-import verifyEmailRoute from "./src/routes/verifyEmailRoute.js";
+//import verifyEmailRoute from "./src/routes/verifyEmailRoute.js";
 import authRoute from "./src/routes/authRoute.js";
 import dashboardRoute from "./src/routes/dashboardRoute.js";
 import logoutRoute from "./src/routes/logoutRoute.js";
@@ -49,7 +50,7 @@ import profileMeRoute from "./src/routes/profileMeRoute.js";
 import adminRoute from "./src/routes/adminDatabseRelatedRoute.js";
 import adminDashboardRoute from "./src/routes/adminDashboardRoute.js";
 
-app.use("/api/auth", verifyEmailRoute);
+//app.use("/api/auth", verifyEmailRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/auth", dashboardRoute);
 app.use("/api/auth", logoutRoute);
@@ -72,11 +73,11 @@ app.use((req, res) => {
 
 const PORT = process.env?.PORT || 4000;
 
-app.listen(4000, (err) => {
+app.listen(PORT, (err) => {
   if (err) {
     console.log(err.message);
     return;
   }
 
-  console.log(`Server is listening on http://localhost:${PORT}/`);
+  console.log(`Server is listening on ${PORT}`);
 });

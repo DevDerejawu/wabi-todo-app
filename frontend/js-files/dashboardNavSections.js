@@ -1,6 +1,6 @@
 import { sidebarEndpoints } from "./endpoints.js";
 
-export const baseUrl = "http://localhost:4000";
+export const baseUrl = "https://wabi-todo-app.onrender.com";
 
 export async function getTaskStatistics(endpoint) {
   try {

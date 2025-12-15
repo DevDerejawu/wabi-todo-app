@@ -1,8 +1,13 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import db from "../../config/db.js";
+import dayjs from 'dayjs';
 
+
+const now = dayjs().format('YYYY-MM-DD HH:mm:ss');
 export async function addToTask(userId, body) {
   try {
-    const { title, description, priority, timeQuantity, timeUnit, deadline } =
+    const { title, description, priority, timeQuantity, timeUnit, deadline} =
       body;
 
     if (!userId) {
@@ -16,7 +21,7 @@ export async function addToTask(userId, body) {
     }
 
     const sql = `
-      INSERT INTO tasks(user_id, title, content, priority, time_quantity, time_unit, deadline) VALUES(?, ?, ?, ?, ?, ?, ?)
+      INSERT INTO tasks(user_id, title, content, priority, time_quantity, time_unit, deadline, created_at) VALUES(?, ?, ?, ?, ?, ?, ?, ?)
     `;
 
     const [result] = await db.query(sql, [
@@ -27,6 +32,7 @@ export async function addToTask(userId, body) {
       timeQuantity,
       timeUnit,
       deadline,
+      now
     ]);
 
     if (result.insertId) {

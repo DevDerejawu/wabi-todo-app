@@ -1,4 +1,10 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import db from "../../config/db.js";
+import dayjs from 'dayjs';
+
+
+const now = dayjs().format('YYYY-MM-DD HH:mm:ss');
 
 async function deleteTask(taskId, userId) {
   try {
@@ -18,7 +24,7 @@ async function deleteTask(taskId, userId) {
     const [result] = await db.query(sql, [taskId, userId]);
 
     if (result.affectedRows === 1) {
-      const delSql = `INSERT INTO deleted_tasks(user_id, title, content, priority, time_quantity, time_unit, deadline, status) VALUES(?, ?, ?, ?, ?, ?, ?, ?)`;
+      const delSql = `INSERT INTO deleted_tasks(user_id, title, content, priority, time_quantity, time_unit, deadline, status, created_at) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
       await db.query(delSql, [
         user_id,
@@ -29,6 +35,7 @@ async function deleteTask(taskId, userId) {
         time_unit,
         deadline,
         status,
+        now
       ]);
 
       return {

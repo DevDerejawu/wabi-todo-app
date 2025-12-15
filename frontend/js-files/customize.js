@@ -132,7 +132,7 @@ export const cutomizeBtnsClicked = {
         popupMessage.textContent = data.message;
         setTimeout(() => {
           popupMessage.textContent = "";
-          window.location.reload();
+         
           popupMessage.classList.remove("show");
         }, 5000);
         return;
@@ -142,6 +142,7 @@ export const cutomizeBtnsClicked = {
       popupMessage.textContent = data.message;
       setTimeout(() => {
         popupMessage.textContent = "";
+         window.location.reload();
         popupMessage.classList.remove("show");
       }, 5000);
     } catch (err) {

@@ -10,8 +10,10 @@ async function handleRegisteringUser(req, res) {
     const data = await registerUsers({ name, email, password });
 
     const statusCode = data.status || (data.success ? 201 : 400);
+    
     return res.status(statusCode).json(data);
   } catch (err) {
+    
     return res.status(500).json({
       success: false,
       status: 500,
@@ -52,15 +54,15 @@ async function handleLoggingIn(req, res) {
 
     res.cookie("accessToken", accessToken, {
       httpOnly: true,
-      secure: false,
-      sameSite: "lax",
+      secure: true,
+      sameSite: "none",
       maxAge: 15 * 60 * 1000,
     });
 
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
-      secure: false,
-      sameSite: "lax",
+      secure: true,
+      sameSite: "none",
       maxAge: 28 * 24 * 60 * 60 * 1000,
     });
 
@@ -71,7 +73,6 @@ async function handleLoggingIn(req, res) {
       data: user,
     });
   } catch (err) {
-    console.error(err);
     return res.status(500).json({
       success: false,
       status: 500,

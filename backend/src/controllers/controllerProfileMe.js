@@ -48,8 +48,9 @@ async function HandleProfileMe(req, res) {
 
     return res.status(statusCode).json(data);
   } catch (err) {
-  
+ 
     return res.status(500).json({
+      
       success: false,
       error: "Server-error",
       message: "Internal server error.",
