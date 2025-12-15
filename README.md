@@ -1,7 +1,7 @@
 Todo App Project Readme
 Todo App Project
 
-Live Demo: https://my-project-url.com
+Live Demo: https://wabi-todo-app-1.onrender.com/
 Repository: https://github.com/DevDerejawu/todo-app-project.git
 
 Overview
