@@ -34,7 +34,9 @@ function renderWhenBtnsCliked(isNumber, h2Text, arrayData) {
 }
 async function fetchTotalUsers() {
   try {
-    const res = await fetch(`${baseUrl}/admin/total-users`);
+    const res = await fetch(`${baseUrl}/admin/total-users`, {
+      credentials: "include"
+    });
     const data = await res.json();
 
     if (!data.success) {
@@ -53,9 +55,12 @@ async function fetchTotalUsers() {
   }
 }
 
+
 async function fetchTotalTasks() {
   try {
-    const res = await fetch(`${baseUrl}/admin/total-tasks`);
+    const res = await fetch(`${baseUrl}/admin/total-tasks`, {
+      credentials: "include"
+    });
     const data = await res.json();
 
     if (!data.success) {
@@ -76,7 +81,9 @@ async function fetchTotalTasks() {
 
 async function fetchUsersList() {
   try {
-    const res = await fetch(`${baseUrl}/admin/users-list`);
+    const res = await fetch(`${baseUrl}/admin/users-list`, {
+      credentials: "include"
+    });
     const data = await res.json();
     if (!data.success) {
       if (data.status === 401) {
@@ -96,7 +103,9 @@ async function fetchUsersList() {
 
 async function fetchTasksList() {
   try {
-    const res = await fetch(`${baseUrl}/admin/tasks-list`);
+    const res = await fetch(`${baseUrl}/admin/tasks-list`, {
+      credentials: "include"
+    });
     const data = await res.json();
     if (!data.success) {
       if (data.status === 401) {
@@ -115,6 +124,7 @@ async function deleteUserByEmail(email) {
   try {
     const res = await fetch(`${baseUrl}/admin/delete-user/${email}`, {
       method: "DELETE",
+      credentials: "include"
     });
     const data = await res.json();
     if (!data.success) {
@@ -153,7 +163,9 @@ deleteUser.addEventListener("click", () => {
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    const res = await fetch(`${baseUrl}/admin/dashboard`);
+    const res = await fetch(`${baseUrl}/admin/dashboard`, {
+      credentials: "include"
+    });
     const data = await res.json();
     if (data.status === 401 || data.status === 403) {
       window.location.href = "../index.html";
