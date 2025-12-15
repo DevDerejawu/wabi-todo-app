@@ -65,6 +65,6 @@ async function creatingTables() {
 }
 
 // it is not needed once tables are created so commenting the called function is better
-await creatingTables()
+//await creatingTables()
 
 
