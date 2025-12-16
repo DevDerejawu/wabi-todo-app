@@ -135,7 +135,7 @@ export async function sendRegisteringData(
     const data = await res.json();
     return data;
   } catch (err) {
-    throw err.message;
+    throw new Error(err.message);
   }
 }
 
@@ -157,7 +157,7 @@ export async function sendLogingData(passwordValue, emailValue) {
     const data = await res.json();
     return data;
   } catch (err) {
-    throw err.message;
+    throw new Error(err.message);
   }
 }
 
