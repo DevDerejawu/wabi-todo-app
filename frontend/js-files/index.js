@@ -107,7 +107,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //submit registering btn and sending data to backend to be registered. and redirecting to verify popup or page.
     if (e.target.matches(".register-btn")) {
+        const btn = e.target;
+        const text = btn.textContent;
       try {
+        btn.classList.add("disabled-btn");             
+        btn.textContent = "Wait a moment..." 
         const result = [];
 
         //validate the inpus again if they are submitted in any case just to make sure.
@@ -165,12 +169,19 @@ document.addEventListener("DOMContentLoaded", () => {
           startPopupMesage.classList.remove("show");
           startPopupMesage.textContent = "";
         }, 5000);
+      }finally{
+        btn.textContent = text;
+        btn.classList.remove("disabled-btn");
       }
     }
 
     // Login btn is clicked and sent the data to back end to be logged in.
     if (e.target.matches(".login-btn")) {
+      const btn = e.target;
+      const text = btn.textContent;
       try {
+        btn.classList.add("disabled-btn");             
+        btn.textContent = "Wait a moment..." 
         const password = authModals.querySelector("#sign-in-password");
         const email = authModals.querySelector("#sign-in-email");
 
@@ -213,6 +224,9 @@ document.addEventListener("DOMContentLoaded", () => {
           startPopupMesage.classList.remove("show");
           startPopupMesage.textContent = "";
         }, 5000);
+      }finally{
+        btn.textContent = text;
+        btn.classList.remove("disabled-btn");
       }
     }
 
