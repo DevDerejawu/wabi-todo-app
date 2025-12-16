@@ -28,7 +28,9 @@ const mobileSidebar = document.querySelector(".mobile-sidebar");
 const adminBtn = document.querySelector(".admin-btn");
 adminBtn.addEventListener("click", async () => {
   try {
-    const res = await fetch(`${baseUrl}/admin/dashboard`);
+    const res = await fetch(`${baseUrl}/admin/dashboard`, {
+      credentials: "include"
+    });
     const data = await res.json();
     if (!data.success) {
       if (data.status === 401) {
