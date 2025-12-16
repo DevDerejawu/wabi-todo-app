@@ -110,8 +110,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const btn = e.target;
         const text = btn.textContent;
       try {
-        btn.classList.add("disabled-btn");             
-        btn.textContent = "Wait a moment..." 
+        btn.style.cursor = "not-allowed";
+        btn.textContent = "Wait a moment..."
         const result = [];
 
         //validate the inpus again if they are submitted in any case just to make sure.
@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 5000);
       }finally{
         btn.textContent = text;
-        btn.classList.remove("disabled-btn");
+        btn.style.cursor = "pointer";
       }
     }
 
@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const btn = e.target;
       const text = btn.textContent;
       try {
-        btn.classList.add("disabled-btn");             
+        btn.style.cursor = "not-allowed";
         btn.textContent = "Wait a moment..." 
         const password = authModals.querySelector("#sign-in-password");
         const email = authModals.querySelector("#sign-in-email");
@@ -226,7 +226,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 5000);
       }finally{
         btn.textContent = text;
-        btn.classList.remove("disabled-btn");
+        btn.style.cursor = "pointer";
       }
     }
 
