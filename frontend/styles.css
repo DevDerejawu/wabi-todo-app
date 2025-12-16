@@ -1,11 +1,6 @@
 body {
   padding-top: 50px;
 }
-
-.disabled-btn {
-  cursor: not-allowed;
-  pointer-events: none;
-}
 .start-popup-message {
   top: 10px;
   left: 20px;
