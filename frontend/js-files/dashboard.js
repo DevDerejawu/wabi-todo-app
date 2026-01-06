@@ -384,7 +384,7 @@ function displayUserProfile(user) {
 
   //toggling profile modal functionality starts here
   const modal = document.querySelector(".profile-modal");
-  const openProfileModalBtn = document.getElementById("profile-picture");
+  const openProfileModalBtn = document.querySelector(".profile-container-for-two-options");
   const closeProfileModalBtn = document.querySelector(".close-profile-modal");
 
   openProfileModalBtn.addEventListener("click", () => {
