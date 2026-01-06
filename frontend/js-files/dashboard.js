@@ -348,12 +348,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     }, 5000);
   }
 
-  function displayUserProfile(user) {
-    const img = document.getElementById("profile-picture");
-    img.src = user?.profile_picture
-      ? `${baseUrl}/${user.profile_picture}`
-      : "../img/avatar.png";
-  }
+function displayUserProfile(user) {
+    const container = document.querySelector(".profile");
+    
+    if (user?.profile_picture) {
+        container.innerHTML = `<img id="profile-picture" src="${baseUrl}/${user.profile_picture}" alt="Profile">`;
+    } else {
+        container.innerHTML = `<i class="fas fa-user-circle" id="profile-icon"></i>`;
+        const icon = document.getElementById("profile-icon");
+        icon.style.fontSize = "40px";
+        icon.style.color = "#ccc";
+    }
+}
 
   function timeGreeting() {
     const hr = new Date().getHours();
