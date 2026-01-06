@@ -349,7 +349,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
 function displayUserProfile(user) {
-    const container = document.querySelector(".profile");
+    const container = document.querySelector(".profile-container-for-two-options");
     
     if (user?.profile_picture) {
         container.innerHTML = `<img id="profile-picture" src="${baseUrl}/${user.profile_picture}" alt="Profile">`;
@@ -357,7 +357,7 @@ function displayUserProfile(user) {
         container.innerHTML = `<i class="fas fa-user-circle" id="profile-icon"></i>`;
         const icon = document.getElementById("profile-icon");
         icon.style.fontSize = "40px";
-        icon.style.color = "#ccc";
+        icon.style.color = "#123";
     }
 }
 
