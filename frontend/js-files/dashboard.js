@@ -499,7 +499,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       formData.append("profile-picture", profilePicture.files[0]);
 
       try {
-        const res = await fetch(`/profile/me`, {
+        const res = await fetch(`${baseUrl}/profile/me`, {
           method: "PATCH",
           body: formData,
         });
