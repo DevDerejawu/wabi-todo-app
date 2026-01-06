@@ -354,12 +354,7 @@ function displayUserProfile(user) {
     if (user && user.profile_picture) {
         container.innerHTML = `<img id="profile-picture" src="${baseUrl}/${user.profile_picture}" alt="Profile">`;
     } else {
-        container.innerHTML = `<i class="fas fa-user-circle" id="profile-icon"></i>`;
-        const icon = document.getElementById("profile-icon");
-        if (icon) {
-            icon.style.fontSize = "40px";
-            icon.style.color = "#123";
-        }
+        container.innerHTML = "👤";
     }
 }
 
