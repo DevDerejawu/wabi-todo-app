@@ -24,6 +24,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: "https://wabi-todo-app-1.onrender.com",
+    methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
     credentials: true,
   })
 );
