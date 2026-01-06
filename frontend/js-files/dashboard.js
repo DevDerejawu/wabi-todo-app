@@ -350,12 +350,22 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 function displayUserProfile(user) {
     const container = document.querySelector(".profile-container-for-two-options");
+  container.style.cursor = "pointer";
     
     if (user && user.profile_picture) {
-        container.innerHTML = `<img id="profile-picture" src="${baseUrl}/${user.profile_picture}" alt="Profile">`;
-    } else {
-        container.innerHTML = "👤";
-    }
+  container.innerHTML = "";
+
+  const img = document.createElement("img");
+  img.id = "profile-picture";
+  img.src = `${baseUrl}/${user.profile_picture}`;
+  img.alt = "Profile picture";
+
+  container.appendChild(img);
+} else {
+  container.textContent = "👤";
+  container.style.fontSize = "48px"; 
+  
+}
 }
 
   function timeGreeting() {
