@@ -502,6 +502,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         const res = await fetch(`${baseUrl}/profile/me`, {
           method: "PATCH",
           body: formData,
+          credentials: "include",
+          
         });
 
         const data = await res.json();
